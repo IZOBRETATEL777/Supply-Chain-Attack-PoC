@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  nginx:
+    image: ghcr.io/izobretatel777/supply-chain-attack-poc:latest
+    pull_policy: always
+    container_name: super-app
+    ports:
+      - "80:80"
+    volumes:
+      - ./website:/usr/share/nginx/html
+      - ./website/nginx.conf:/etc/nginx/nginx.conf
+    restart: unless-stopped
+
